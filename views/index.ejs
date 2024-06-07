@@ -1,8 +1,37 @@
 <%- include('./partials/head') %> <!-- Deze regel voegt de inhoud van head.ejs toe aan de pagina -->
 
  
+<section class ="hero">
+    <h1>BNR Business Beats</h1>
+    <p>blijf scherp</p>
+    <button>Luister nu</button>
+</section>
 
+<section class="musicplayer">
+      <div class="audio-container">
+        <h2>Live Stream</h2>
+        <audio id="audio" src="<%= mp3 %>"></audio>
+        <div class="audio-controls">
+          <button id="playPauseBtn">Play</button>
+          <input type="range" id="seekBar" value="0" max="100">
+          <span id="currentTime">0:00</span> / <span id="duration">0:00</span>
+          <button id="muteBtn">Mute</button>
+          <input type="range" id="volumeBar" min="0" max="1" step="0.1" value="1">
+        </div>
+      </div>
+</section>
 
-
+<section class="articles">
+    <h1>Laatste Artikelen</h1>
+    <ul>
+      <% articles.forEach(function(article) { %>
+        <li>
+          <h2><a href="<%= article.url %>"><%= article.title %></a></h2>
+          <p><%= article.description %></p>
+          <img src="<%= article.photo.URL %>" alt="<%= article.title %>" style="width: 200px;">
+        </li>
+      <% }); %>
+    </ul>
+</section>
 </body>
 </html>

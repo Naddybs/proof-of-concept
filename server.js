@@ -32,6 +32,7 @@ app.get('/', (req, res) => {
         articles: articles });
 });
 
+
  // Dit zorgt ervoor dat de server start op poort 3000 en dat er een bericht wordt gelogd in de console wanneer de server is gestart.
  app.set('port', process.env.PORT || 3000);
      app.listen(app.get('port'), function () {
