@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/fdnd-task/proof-of-concept#readme",
   "dependencies": {
+    "audiomotion-analyzer": "^4.5.0",
     "ejs": "^3.1.9",
     "express": "^4.19.2",
     "plyr": "^3.7.8"

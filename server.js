@@ -8,6 +8,8 @@ console.log('Server is gestart op poort 3000');
 // Hier importeer je de fetchJson functie die je hebt gemaakt in de fetchJson.js file.
 import fetchJson from './helpers/fetch-json.js';
 
+
+
 // Hiermee zet je de view engine van de express applicatie op ejs en zorg je ervoor dat de views in de map views worden opgeslagen.
 // Daarnaast maak je de public map statisch zodat de bestanden in deze map kunnen worden opgehaald.
 // Ook gebruik je de express.urlencoded middleware om het werken met request data makkelijker te maken.
