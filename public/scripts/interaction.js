@@ -6,36 +6,85 @@
 // In de event listener controleer ik of de audio aan het afspelen is. Als dit het geval is, wordt de audio gepauzeerd en wordt de innerHTML van de playPauseButton veranderd naar het playIcon. Als de audio niet aan het afspelen is, wordt de audio afgespeeld en wordt de innerHTML van de playPauseButton veranderd naar het pauseIcon.
 // Tot slot voeg ik een event listener toe aan de volumeControl die wordt geactiveerd wanneer de waarde van de volumeControl wordt veranderd. In de event listener wordt de volume van de audio aangepast aan de hand van de waarde van de volumeControl.
 // Dit script zorgt ervoor dat de audio kan worden afgespeeld, gepauzeerd en het volume kan worden aangepast op de website.
-const audio = document.getElementById("audio");
-        const playPauseButton = document.getElementById("play-pause-button");
-        const volumeControl = document.getElementById("volume");
-        let isPlaying = false;
+    //  const audio = document.getElementById("audio");
+    //  const playPauseButton = document.getElementById("play-pause-button");
+    //  const volumeControl = document.getElementById("volume");
+    //     let isPlaying = false;
 
-        const playIcon = `
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#FFD200" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-player-play">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                <path d="M7 4v16l13 -8z" />
-            </svg>`;
-        const pauseIcon = `
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#FFD200" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-player-pause">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                <path d="M6 5m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v12a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
-                <path d="M14 5m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v12a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
-            </svg>`;
+    //     const playIcon = `
+    //         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#FFD200" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-player-play">
+    //             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+    //             <path d="M7 4v16l13 -8z" />
+    //         </svg>`;
+    //     const pauseIcon = `
+    //         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#FFD200" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-player-pause">
+    //             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+    //             <path d="M6 5m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v12a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+    //             <path d="M14 5m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v12a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+    //         </svg>`;
 
-        playPauseButton.innerHTML = playIcon;
+    //     playPauseButton.innerHTML = playIcon;
 
-        playPauseButton.addEventListener("click", () => {
-            if (isPlaying) {
-                audio.pause();
-                playPauseButton.innerHTML = playIcon;
-            } else {
-                audio.play();
-                playPauseButton.innerHTML = pauseIcon;
-            }
-            isPlaying = !isPlaying;
-        });
+    //     playPauseButton.addEventListener("click", () => {
+    //         if (isPlaying) {
+    //             audio.pause();
+    //             playPauseButton.innerHTML = playIcon;
+    //         } else {
+    //             audio.play();
+    //             playPauseButton.innerHTML = pauseIcon;
+    //         }
+    //         isPlaying = !isPlaying;
+    //     });
 
-        volumeControl.addEventListener("input", () => {
-            audio.volume = volumeControl.value / 100;
-        });
+    //     volumeControl.addEventListener("input", () => {
+    //         audio.volume = volumeControl.value / 100;
+    //     });
+
+    // script.js
+document.addEventListener("DOMContentLoaded", function() {
+    const audio = document.getElementById("audio");
+    const playPauseButton = document.getElementById("play-pause-button");
+    const volumeControl = document.getElementById("volume");
+    const volumeButton = document.getElementById("volume-button");
+    let isPlaying = false;
+
+    const playIcon = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#FFD200" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-player-play">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M7 4v16l13 -8z" />
+        </svg>`;
+    const pauseIcon = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#FFD200" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-player-pause">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M6 5m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v12a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+            <path d="M14 5m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v12a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+        </svg>`;
+
+    playPauseButton.innerHTML = playIcon;
+
+    playPauseButton.addEventListener("click", () => {
+        if (isPlaying) {
+            audio.pause();
+            playPauseButton.innerHTML = playIcon;
+        } else {
+            audio.play();
+            playPauseButton.innerHTML = pauseIcon;
+        }
+        isPlaying = !isPlaying;
+    });
+
+    volumeControl.addEventListener("input", () => {
+        audio.volume = volumeControl.value / 100;
+    });
+
+    volumeButton.addEventListener('click', () => {
+        volumeControl.style.display = volumeControl.style.display === 'block' ? 'none' : 'block';
+    });
+
+    function updateSliderBackground(slider) {
+        const value = (slider.value - slider.min) / (slider.max - slider.min) * 100;
+        slider.style.background = `linear-gradient(to top, #4CAF50 ${value}%, #f44336 ${value}%)`;
+    }
+
+    updateSliderBackground(volumeControl); // initialize slider background
+});

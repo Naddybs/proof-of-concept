@@ -2,19 +2,30 @@
 
  
 <section class ="hero">
-    <div class="skewed"></div>
-    <h1>BNR Business Beats</h1>
-    <p>blijf scherp</p>
+    <div class="skewed">
+        <img src="../assets/bnr-logo-white-Photoroom.png" alt="BNR Logo" id="logo-white" width="100px">
+    </div>
+    <h1>BUSINESS BEATS.</h1>
+    <p>Blijf scherp.</p>
+    <img src="../assets/BNR-Logo-Business-Beats-Photoroom.png" alt="BNR Logo" id="bb-logo">
 </section>
 
+<!-- // Door controls toe te voegen aan de audio tag, krijg je een standaard audio player
+// preload="none" zorgt ervoor dat de audio niet automatisch wordt geladen
+// ik heb eigen controls toegevoegd, zodat ik de vormgeving kan aanpassen -->
 <section class="musicplayer">
     <audio id="audio" src="http://playerservices.streamtheworld.com/api/livestream-redirect/BNR_BUSINESS_BEATS.mp3?<%= Date.now() %>" controls preload="none"></audio>
-         <div class="play-btn-container">
-             <button id="play-pause-button"></button>
-         </div>
-    <input type="range" id="volume" min="0" max="100" value="100">
+    <div class="beat-visualizer-section">
+        <img src="../assets/Beat-visualizer.png" alt="Beat Visualizer" id="beat-visualizer">
+        <div class="play-btn-container">
+            <button id="play-pause-button"></button>
+            <div class="volume-container">
+                <button id="volume-button"><img src="../assets/volume.png" height="35"></button>
+                <input type="range" id="volume" min="0" max="100" value="100">
+            </div>
+        </div>
+    </div>
 </section>
-  
 
 <article class="articles">
     <h1>Laatste Artikelen</h1>

@@ -43,6 +43,18 @@ header nav ul li a {
     
     }
 }
+@media (min-width: 300px){
+    nav li{
+        display: none;
+    }
+}
+
+@media (min-width: 600px){
+    nav li{
+        display: block;
+    }
+    
+}
 /* ---------------------------------------nav section  end-------------------------------------- */
 
 /* ---------------------------------------hero section start-------------------------------------- */
@@ -52,17 +64,18 @@ header nav ul li a {
     text-align: center;
     position: relative;
     z-index: 1000;
-    min-height: 20em;
+    max-height: 22em;
 }
 .skewed {
     position: absolute;
     top: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, hsla(0, 0%, 0%, 1) 0%, hsla(44, 42%, 36%, 1) 100%);
+    /* background: linear-gradient(90deg, hsla(0, 0%, 0%, 1) 0%, hsla(44, 42%, 36%, 1) 100%); */
+    background-color: #000;
 
     z-index: -2;
-    transform: skewY(13deg);
+    transform: skewY(33deg);
     transform-origin: top right;
   }
 .hero h1 {
@@ -72,49 +85,194 @@ header nav ul li a {
 }
 
 .hero p {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: #666;
 }
+#bb-logo {
+    width: 350px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+    position: relative;
+    bottom: 3.5em;
+    right: 6em;
+    z-index: -10;
+}
+#logo-white{
+    display: none;
+}
+
+/* @media (min-width: 768px) {
+    .hero h1 {
+        font-size: 4rem;
+    }
+    .hero p {
+        font-size: 1.8rem;
+    }
+    .skewed {
+        transform: skewY(15deg);
+    }
+} */
+@media (min-width: 768px) {
+    .skewed {
+        transform: skewY(20deg);
+    }
+    .hero h1 {
+        font-size: 4rem;
+    }  
+    .hero p {
+        font-size: 1.8rem;
+    }
+    #bb-logo {
+        right: 16em;
+    }
+    #beat-visualizer{
+        display: none;
+    }
+    .articles ul{
+        flex-wrap: wrap;
+        justify-content: center;
+
+    }
+}
+
+@media (min-width: 1024px) {
+    .skewed {
+        transform: skewY(0deg);
+    }
+    .hero h1 {
+        font-size: 4.5rem;
+        line-break: anywhere;
+        text-decoration: underline;
+    }
+    .hero p {
+        font-size: 2rem;
+    }
+    #bb-logo {
+        display: none;
+    }
+    #beat-visualizer{
+        display: none;
+    }
+    .articles ul{
+        flex-wrap: wrap;
+        justify-content: center;
+
+    }
+    #logo-white{
+        display: block;
+        width: 600px;
+        height: auto;
+        display: block;
+        position: relative;
+        bottom: 3.5em;
+        left: 28em;
+      
+    }
+    .musicplayer{
+        background-color: var(--primary-clr)
+    }
+    
+#play-pause-button:after {
+    content: "";
+    background-color: rgb(158 196 193);
+    width: 100%;
+    z-index: -1;
+    position: absolute;
+    height: 100%;
+    top: 7px;
+    left: 7px;
+    transition: 0.2s;
+} 
+.articles li {
+    width: calc(50% - 1rem); /* Twee kolommen met een kleine ruimte ertussen */
+}
+}
+@media (min-width: 1440px){
+   #logo-white{
+        left:42em;
+    }
+}
+
+   
 /* ----------------------------------------hero section end------------------------------------------------ */
 
 /* ----------------------------------------musicplayer section start------------------------------------------------ */
+/* // Door de sticky class blijft de musicplayer bovenaan de pagina staan */
+/* // De z-index zorgt ervoor dat de musicplayer bovenaan de pagina blijft staan boven alle andere elementen */
+#audio{
+    display: none;
+}
+#beat-visualizer{
+    overflow: hidden;
+    position: relative;
+    left: 2em;
+    z-index: -1;
+}
+.beat-visualizer-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1em;
+
+}
+
 .musicplayer {
-    background: black;
-    padding: 1rem;
+    background: rgb(158 196 193);
+    padding: .5rem;
     position: sticky;
     top: 0;
     z-index: 999;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* max-height: 5em; */
     svg {
-        width: 5em;
+        width: 3em;
         height: auto;
     }
 }
 
-.musicplayer button {
-    background-color: var(--primary-clr);
-    color: black;
-    border: solid 2px #FFD200;
-    border-radius: 5px;
-    padding: 1rem 2rem;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    transform: translateY(0);
-    margin-top: 1rem;
-    display: block;
-    width: 100%;
-    &:hover {
-        background-color: hwb(50 7% 53%);
-    }
+.play-btn-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
+
+#play-pause-button {
+    font-size: 18px;
+    font-weight: 200;
+    letter-spacing: 1px;
+    padding: 13px 20px 13px;
+    outline: 0;
+    border: 1px solid black;
+    cursor: pointer;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+#play-pause-button:after {
+    content: "";
+    background-color: var(--primary-clr);
+    width: 100%;
+    z-index: -1;
+    position: absolute;
+    height: 100%;
+    top: 7px;
+    left: 7px;
+    transition: 0.2s;
+}
+
+
 /* ----------------------------------------musicplayer section  end------------------------------------------------ */
 
 /* --------------------------------------- articles section start------------------------------------------------ */
 .articles {
     background: black;
     padding: 3rem 0;
-    text-align: center;
+    padding: 1em; 
     & h1{
         font-size: 2.5rem;
         margin-bottom: 2rem;
@@ -126,32 +284,36 @@ header nav ul li a {
 
 .articles ul {
     list-style: none;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+   display: flex;
+   flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
     gap: 2rem;
     padding: 0;
 }
 
 .articles li {
     background: #000000;
-    border: 2px solid hsl(200, 30%, 80%);
     border-radius: 5px;
     overflow: hidden;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
     display: flex;
     flex-direction: column;
-    padding: 1rem;
     &:hover {
         transform: translateY(-10px);
         box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+    }
+    & img{
+        width: 100%;
+        height: auto;
     }
 }
 
 .articles li h2 {
     font-size: 1.6rem;
     margin: 1rem 0 0.5rem;
-    color: var(--primary-clr);
+    color: white;
     & a{
         text-decoration: none;
         color: inherit;
@@ -160,7 +322,7 @@ header nav ul li a {
 }
 
 .articles li h2 a:hover {
-    color: hwb(0 100% 0%);
+    color:  var(--primary-clr);
 }
 
 .articles li .article-meta {
@@ -168,7 +330,7 @@ header nav ul li a {
     justify-content: space-between;
     align-items: center;
     font-size: 0.9rem;
-    color: hsl(200, 30%, 40%);
+    color: rgb(158 196 193);
     border-top: 1px solid hsl(200, 30%, 80%);
     padding-top: 0.5rem;
     margin-top: 1rem;
@@ -178,3 +340,60 @@ header nav ul li a {
 .articles li .article-meta .date {
     margin: 0;
 }
+
+
+/* --------------------------------------- articles section end------------------------------------------------ */
+
+
+
+
+input[type="range"] {
+    writing-mode: bt-lr; /* Verticaal slider */
+    transition: background-color 0.5s ease;
+    margin: 10px 0;
+    display: none; /* Begin als verborgen */
+}
+
+
+
+.volume-container {
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 1em;
+}
+
+#volume-button {
+    margin-top: 10px;
+    cursor: pointer;
+ background-color: rgba(0, 0, 0, 0);
+    border: 1px solid black;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: 200;
+    letter-spacing: 1px;
+    outline: 0;
+    position: relative;
+    user-select: none;
+    -webkit-user-select: none;
+&:after {
+    content: "";
+    background-color: var(--primary-clr);
+    width: 100%;
+    z-index: -1;
+    position: absolute;
+    height: 100%;
+    top: 7px;
+    left: 7px;
+    transition: 0.2s;
+}
+
+}
+
+#volume-button:focus + #volume,
+#volume:focus {
+    display: block; /* Toont de volumeregelaar bij focus */
+}
+
